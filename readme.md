@@ -39,22 +39,24 @@ azureml-julia
 
 ## Installing a Julia Kernel in Azure ML notebooks
 
-If you rather work interactively using notebooks, you can create a kernel with Julia support with:
+If you rather work interactively using notebooks, you can create a kernel with Julia support in Jupyter Notebooks. The following instructions provide a quick start:
 
 1. Create a compute instance in the regular way.
-2. Intall Julia as [suggested in their official website](https://julialang.org/downloads/platform/#linux_and_freebsd). 
+2. Install Julia as [suggested in their official website](https://julialang.org/downloads/platform/#linux_and_freebsd). 
 
     ```bash
     # install julia in a Compute Instance
     export JULIA_PATH=/usr/local/julia
 
     wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.3-linux-x86_64.tar.gz
-    sudo mkdir "$JULIA_PATH";
-    sudo tar -xzf julia-1.7.3-linux-x86_64.tar.gz -C "$JULIA_PATH" --strip-components 1;
-    rm julia-1.7.3-linux-x86_64.tar.gz;
+    sudo mkdir "$JULIA_PATH"
+    sudo tar -xzf julia-1.7.3-linux-x86_64.tar.gz -C "$JULIA_PATH" --strip-components 1
+    rm julia-1.7.3-linux-x86_64.tar.gz
 
     echo 'export PATH="/usr/local/julia:${PATH}"' >> ~/.bashrc
     ```
+
+    > **Important:** Installation instructions are provided as-is, but they don't represent any preference of installation or best-practice. You should check them with the platform administrator to ensure they comply with your organization policies.
 
 3. Install the kernel in Jupyter:
 
@@ -66,3 +68,7 @@ If you rather work interactively using notebooks, you can create a kernel with J
     # install the kernel
     julia -e 'using Pkg; Pkg.add("IJulia");'
     ```
+
+## Contributing
+
+This project welcomes contributions and suggestions. Open an issue and start the discussion! **Don't be shy!**
