@@ -33,6 +33,10 @@ azureml-julia
     az ml job create -f .aml/train.job.yml
     ```
 
+4. Once the run is completed, you can review the model and register it as a model in Azure ML:
+
+    ![](docs/register-model.png)
+
 ## Installing a Julia Kernel in Azure ML notebooks
 
 If you rather work interactively using notebooks, you can create a kernel with Julia support with:
