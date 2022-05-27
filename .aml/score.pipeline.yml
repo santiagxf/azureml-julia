@@ -1,0 +1,29 @@
+$schema: https://azuremlschemas.azureedge.net/latest/pipelineJob.schema.json
+type: pipeline
+display_name: julia_pipeline
+jobs:
+  get_model:
+    type: command
+    outputs:
+      model_path:
+        mode: upload
+    command: |
+      
+      az ml model download --name julia-model --label latest --download-path ${{outputs.model_path}}
+    environment:
+      image: library/python:latest
+    compute: azureml:trainer-cpu
+  run_model:
+    type: command
+    inputs:
+      model_path: ${{parent.jobs.get_model.outputs.model_path}}
+      input_dataset:
+        type: uri_file
+        path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    outputs:
+      output_dataset:
+    command: |
+        julia model.jl --model-path ${{inputs.model_path}} --input-dataset ${{inputs.input_dataset}} --output-dataset ${{outputs.output_dataset}}
+    code: src
+    environment: azureml:julia-172-debian_bullseye-cpu@latest
+    compute: azureml:trainer-cpu
