@@ -5,14 +5,14 @@ Although Julia is not preinstalled in Azure Machine Learning, the platform suppo
 In this repository, you will find an example about how to train a tree-based decision model using Julia (1.7.2) for the popular Iris dataset. This repository is organized as follows:
 
 ```bash
-.
+azureml-julia
 ├── .aml                                # Contain all the elements specific for Azure ML
 │   ├── docker-context                      # Contain a docker image for running Julia version 1.7.2
 │   │   ├── Dockerfile
 │   ├── julia.env.yml                       # The Azure ML environment definition
 │   └── train.job.yml                       # A training job definition for the Iris dataset problem
 ├── notebooks                           # Notebooks
-│   ├── iris.jl.ipynb                       # A training job for the Iris dataset using Julia in Jupyter Notebooks
+│   ├── iris.jl.ipynb                       # A training job for the Iris dataset using Julia in Notebooks
 ├── readme.md
 └── src                                 # Train source code
     └── iris.jl                             # A training job for the Iris dataset using Julia
