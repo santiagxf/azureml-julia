@@ -1,6 +1,6 @@
 # Training models with Julia in Azure ML
 
-Although Julia is not preinstalled in Azure Machine Learning, the platform supports execution of Machine Learning models or any other code using this language.
+Although Julia is not preinstalled in Azure Machine Learning, the platform is prepared to handle models or general code created in the Julia language as with any other.
 
 In this repository, you will find an example about how to train a tree-based decision model using Julia (1.7.2) for the popular Iris dataset. This repository is organized as follows:
 
