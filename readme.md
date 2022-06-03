@@ -29,13 +29,21 @@ azureml-julia
     az ml environment create -f .aml/julia.env.yml
     ```
 
-3. Submit a training job
+3. Create a compute cluster where to train on:
+
+    ```bash
+    az ml compute create -f .aml/trainer-cpu.compute.yml
+    ```
+
+    > This compute cluster will have a minimum of 0 nodes, meaning that when no training jobs are running, it will scale down to 0 so you can reduce costs associated with it
+
+4. Submit a training job
 
     ```bash
     az ml job create -f .aml/train.job.yml
     ```
 
-4. Once the run is completed, you can review the model and register it as a model in Azure ML:
+5. Once the run is completed, you can review the model and register it as a model in Azure ML:
 
     ![](docs/register-model.png)
 
