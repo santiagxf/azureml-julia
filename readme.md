@@ -12,12 +12,13 @@ azureml-julia
 │   ├── docker-context                      # Contain a docker image for running Julia version 1.7.2
 │   │   ├── Dockerfile
 │   ├── julia.env.yml                       # The Azure ML environment definition
-│   └── train.job.yml                       # A training job definition for the Iris dataset problem
+│   ├── train.job.yml                       # A training job definition for the Iris dataset problem
+│   └── trainer-cpu.compute.yml             # A compute cluster definition for Azure ML.
 ├── notebooks                           # Notebooks
 │   ├── iris.jl.ipynb                       # A training job for the Iris dataset using Julia in Notebooks
 ├── readme.md
 └── src                                 # Train source code
-    └── iris.jl                             # A training job for the Iris dataset using Julia
+    └── iris.jl                             # A training routine for the Iris dataset using Julia
 ```
 
 ## Getting started
