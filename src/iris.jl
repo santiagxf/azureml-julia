@@ -28,3 +28,4 @@ using JLD2
 
 mkpath("outputs")
 @save "outputs/iris.jld2" model
+@save "outputs/coeffs.jld2" coeffs
