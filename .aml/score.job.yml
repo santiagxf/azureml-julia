@@ -8,8 +8,11 @@ inputs:
     type: custom_model
     path: azureml:julia-model@latest
     mode: download
+outputs:
+    scored_dataset:
+      mode: upload
 command: |
-    julia model.jl ${{inputs.input_model}} ${{inputs.input_dataset}}
+    julia model.jl ${{inputs.input_model}} ${{inputs.input_dataset}} ${{outputs.scored_dataset}}
 code: ../src
 environment: azureml:julia-172-debian_bullseye-cpu@latest
 compute: azureml:trainer-cpu

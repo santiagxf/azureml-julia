@@ -64,7 +64,7 @@ If you rather work interactively using notebooks, you can create a kernel with J
     sudo tar -xzf julia-1.7.3-linux-x86_64.tar.gz -C "$JULIA_PATH" --strip-components 1
     rm julia-1.7.3-linux-x86_64.tar.gz
 
-    echo 'export PATH="/usr/local/julia:${PATH}"' >> ~/.bashrc
+    echo 'export PATH="/usr/local/julia/bin:${PATH}"' >> ~/.bashrc
     ```
 
     > **Important:** Installation instructions are provided as-is, but they don't represent any preference of installation or best-practice. You should check them with the platform administrator to ensure they comply with your organization policies.
