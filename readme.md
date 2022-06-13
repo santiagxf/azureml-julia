@@ -13,6 +13,7 @@ azureml-julia
 │   │   ├── Dockerfile
 │   ├── julia.env.yml                       # The Azure ML environment definition
 │   ├── train.job.yml                       # A training job definition for the Iris dataset problem
+│   ├── score.job.yml                       # A scoring job definition to score the dataset using the latest model
 │   └── trainer-cpu.compute.yml             # A compute cluster definition for Azure ML.
 ├── notebooks                           # Notebooks
 │   ├── iris.jl.ipynb                       # A training job for the Iris dataset using Julia in Notebooks
@@ -48,6 +49,8 @@ azureml-julia
 
     ![](docs/register-model.png)
 
+> If you are going to run the scoring job `score.job.yml`, make sure you name the model `julia-model`, as it is the name the scoring job expects for it.
+
 ## Installing a Julia Kernel in Azure ML notebooks
 
 If you rather work interactively using notebooks, you can create a kernel with Julia support in Jupyter Notebooks. The following instructions provide a quick start:
@@ -79,6 +82,10 @@ If you rather work interactively using notebooks, you can create a kernel with J
     # install the kernel
     julia -e 'using Pkg; Pkg.add("IJulia");'
     ```
+
+4. The kernel will be available in the list of kernels:
+
+    ![](docs/jupyter-julial.png)
 
 ## Contributing
 
