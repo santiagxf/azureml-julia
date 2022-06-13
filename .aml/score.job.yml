@@ -1,0 +1,15 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+inputs:
+  input_dataset:
+    type: uri_file
+    path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    mode: download
+  input_model:
+    type: custom_model
+    path: azureml:julia-model@latest
+    mode: download
+command: |
+    julia model.jl ${{inputs.input_model}} ${{inputs.input_dataset}}
+code: ../src
+environment: azureml:julia-172-debian_bullseye-cpu@latest
+compute: azureml:trainer-cpu
