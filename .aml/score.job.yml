@@ -10,7 +10,7 @@ inputs:
     mode: download
 outputs:
     scored_dataset:
-      mode: upload
+      mode: mount
 command: |
     julia model.jl ${{inputs.input_model}} ${{inputs.input_dataset}} ${{outputs.scored_dataset}}
 code: ../src
