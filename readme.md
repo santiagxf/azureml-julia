@@ -45,11 +45,30 @@ azureml-julia
     az ml job create -f .aml/train.job.yml
     ```
 
-5. Once the run is completed, you can review the model and register it as a model in Azure ML:
+5. (optional) Once the run is completed, you can review the model and register it as a model in Azure ML:
 
     ![](docs/register-model.png)
 
-> If you are going to run the scoring job `score.job.yml`, make sure you name the model `julia-model`, as it is the name the scoring job expects for it.
+    You can also register the model using the following command. First, you will need the job name of the training job you just submitted. You can get the ID of the last job using the following command
+
+    ```bash
+    JOB_NAME=$(az ml job list --query "[0].name" | tr -d '"')
+    ```
+
+    Then register the model:
+
+    ```bash
+    az ml model create --name "julia-model" \
+                       --description "Iris classification model trained with Julia" \
+                       --type "custom_model" \
+                       --path "azureml://jobs/$JOB_NAME/outputs/artifacts/outputs"
+    ```
+
+6. (optional) You can run an scoring job to do inference using the model over new data using a job like this:
+
+    ```bash
+    az ml job create -f .aml/score.job.yml
+    ```
 
 ## Installing a Julia Kernel in Azure ML notebooks
 
